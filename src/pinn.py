@@ -20,7 +20,7 @@ class PINN(nn.Module):
         return self.net(x)
     
     def physics_loss(self, q, dq, ddq):
-        from src.utils.dynamics import get_M, get_C, get_G
+        from src.dynamics import get_M, get_C, get_G
         
         M = get_M(q, self.dyn_params)
         C = get_C(q, dq, self.dyn_params)
